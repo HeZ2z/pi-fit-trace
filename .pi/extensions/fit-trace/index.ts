@@ -2,7 +2,7 @@
  * pi Extension adapter for fit-trace.
  *
  * This is the only module that depends on the pi runtime. All domain behavior
- * lives in ./core so it can be tested without pi.
+ * lives in `@pi-fit-trace/core` so it can be tested without pi.
  *
  * Discovery: pi auto-loads project-local extensions from `.pi/extensions/`.
  */
@@ -12,12 +12,15 @@ import { CONFIG_DIR_NAME } from "@earendil-works/pi-coding-agent";
 import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-agent";
 import { Type } from "typebox";
 
-import { analyzeProgress } from "./core/analyze.ts";
-import { FitTraceError } from "./core/errors.ts";
-import { generateNextPlan } from "./core/plan.ts";
-import { validateWorkoutRecord } from "./core/schema.ts";
-import { JsonFileStorage, WorkoutStore } from "./core/store.ts";
-import { SESSION_TYPES } from "./core/types.ts";
+import {
+  SESSION_TYPES,
+  FitTraceError,
+  analyzeProgress,
+  generateNextPlan,
+  validateWorkoutRecord,
+} from "@pi-fit-trace/core";
+
+import { JsonFileStorage, WorkoutStore } from "./store.ts";
 
 /** `PI_FIT_TRACE_STORE` overrides the default project-local store location. */
 function resolveStorePath(cwd: string): string {

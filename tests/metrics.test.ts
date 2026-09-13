@@ -1,16 +1,16 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 
-import { analyzeProgress } from "../.pi/extensions/fit-trace/core/analyze.ts";
-import { ValidationError } from "../.pi/extensions/fit-trace/core/errors.ts";
 import {
+  ValidationError,
+  analyzeProgress,
   detectFlags,
   exerciseTrends,
   flattenSets,
   summarizeMetrics,
-} from "../.pi/extensions/fit-trace/core/metrics.ts";
-import { validateWorkoutRecord } from "../.pi/extensions/fit-trace/core/schema.ts";
-import type { WorkoutRecord } from "../.pi/extensions/fit-trace/core/types.ts";
+  validateWorkoutRecord,
+} from "@pi-fit-trace/core";
+import type { WorkoutRecord } from "@pi-fit-trace/core";
 import { loadFixture } from "./helpers.ts";
 
 async function history(): Promise<WorkoutRecord[]> {

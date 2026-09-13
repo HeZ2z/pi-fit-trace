@@ -4,14 +4,9 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { test } from "node:test";
 
-import { ConflictError, CorruptStoreError, ValidationError } from "../.pi/extensions/fit-trace/core/errors.ts";
-import { validateWorkoutRecord } from "../.pi/extensions/fit-trace/core/schema.ts";
-import {
-  JsonFileStorage,
-  MemoryStorage,
-  WorkoutStore,
-} from "../.pi/extensions/fit-trace/core/store.ts";
-import type { WorkoutRecord } from "../.pi/extensions/fit-trace/core/types.ts";
+import { ConflictError, CorruptStoreError, ValidationError, validateWorkoutRecord } from "@pi-fit-trace/core";
+import { JsonFileStorage, MemoryStorage, WorkoutStore } from "../.pi/extensions/fit-trace/store.ts";
+import type { WorkoutRecord } from "@pi-fit-trace/core";
 import { loadFixture } from "./helpers.ts";
 
 async function fixtureRecord(name: string): Promise<WorkoutRecord> {

@@ -1,10 +1,8 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 
-import { analyzeProgress } from "../.pi/extensions/fit-trace/core/analyze.ts";
-import { generateNextPlan } from "../.pi/extensions/fit-trace/core/plan.ts";
-import { validateWorkoutRecord } from "../.pi/extensions/fit-trace/core/schema.ts";
-import { MemoryStorage, WorkoutStore } from "../.pi/extensions/fit-trace/core/store.ts";
+import { analyzeProgress, generateNextPlan, validateWorkoutRecord } from "@pi-fit-trace/core";
+import { MemoryStorage, WorkoutStore } from "../.pi/extensions/fit-trace/store.ts";
 import { loadFixture } from "./helpers.ts";
 
 test("end-to-end: import -> history -> analyze -> draft plan, without mutating records", async () => {

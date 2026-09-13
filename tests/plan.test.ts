@@ -1,9 +1,8 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 
-import { generateNextPlan } from "../.pi/extensions/fit-trace/core/plan.ts";
-import { validateWorkoutRecord } from "../.pi/extensions/fit-trace/core/schema.ts";
-import type { WorkoutRecord } from "../.pi/extensions/fit-trace/core/types.ts";
+import { generateNextPlan, validateWorkoutRecord } from "@pi-fit-trace/core";
+import type { WorkoutRecord } from "@pi-fit-trace/core";
 import { loadFixture } from "./helpers.ts";
 
 async function history(rpe: number): Promise<WorkoutRecord[]> {

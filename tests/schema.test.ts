@@ -1,8 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 
-import { ValidationError } from "../.pi/extensions/fit-trace/core/errors.ts";
-import { validateWorkoutRecord } from "../.pi/extensions/fit-trace/core/schema.ts";
+import { ValidationError, validateWorkoutRecord } from "@pi-fit-trace/core";
 import { loadFixture } from "./helpers.ts";
 
 test("accepts a valid strength record and normalizes schema_version", async () => {

@@ -7,7 +7,8 @@
 ## Layout (pi discovery paths, not generic folders)
 
 - `.pi/extensions/fit-trace/index.ts` — the only pi-runtime module; registers the four tools.
-- `.pi/extensions/fit-trace/core/` — pure TypeScript domain logic (no pi/typebox imports). Tests target this.
+- `.pi/extensions/fit-trace/store.ts` — Node-only JSON persistence, out of the shared core.
+- `packages/fit-trace-core/` (`@pi-fit-trace/core`) — browser-safe pure TypeScript domain logic and the shared contract (no pi/typebox/Node built-ins). Tests and the app target this.
 - `.pi/skills/training-coach/SKILL.md` — the Skill; auto-discovered by pi.
 - `fixtures/` — JSON fixtures used by tests. `tests/` — `node:test` suite.
 
