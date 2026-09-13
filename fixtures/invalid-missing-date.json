@@ -1,0 +1,11 @@
+{
+  "id": "invalid-missing-date",
+  "schema_version": 1,
+  "session_type": "strength",
+  "exercises": [
+    {
+      "name": "bench_press",
+      "sets": [{ "weight": 80, "reps": 5, "rpe": 8 }]
+    }
+  ]
+}

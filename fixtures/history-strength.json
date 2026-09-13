@@ -1,0 +1,83 @@
+[
+  {
+    "id": "2026-09-01-strength",
+    "schema_version": 1,
+    "date": "2026-09-01",
+    "session_type": "strength",
+    "exercises": [
+      {
+        "name": "bench_press",
+        "sets": [
+          { "weight": 80, "reps": 5, "rpe": 8 },
+          { "weight": 80, "reps": 5, "rpe": 8 },
+          { "weight": 80, "reps": 5, "rpe": 8 }
+        ]
+      },
+      {
+        "name": "squat",
+        "sets": [
+          { "weight": 100, "reps": 5, "rpe": 7.5 },
+          { "weight": 100, "reps": 5, "rpe": 7.5 },
+          { "weight": 100, "reps": 5, "rpe": 7.5 }
+        ]
+      }
+    ],
+    "duration_minutes": 60,
+    "sleep_hours": 7.5,
+    "pain": []
+  },
+  {
+    "id": "2026-09-04-strength",
+    "schema_version": 1,
+    "date": "2026-09-04",
+    "session_type": "strength",
+    "exercises": [
+      {
+        "name": "bench_press",
+        "sets": [
+          { "weight": 82.5, "reps": 5, "rpe": 8 },
+          { "weight": 82.5, "reps": 5, "rpe": 8 },
+          { "weight": 82.5, "reps": 5, "rpe": 8 }
+        ]
+      },
+      {
+        "name": "squat",
+        "sets": [
+          { "weight": 102.5, "reps": 5, "rpe": 8 },
+          { "weight": 102.5, "reps": 5, "rpe": 8 },
+          { "weight": 102.5, "reps": 5, "rpe": 8 }
+        ]
+      }
+    ],
+    "duration_minutes": 65,
+    "sleep_hours": 7,
+    "pain": []
+  },
+  {
+    "id": "2026-09-08-strength",
+    "schema_version": 1,
+    "date": "2026-09-08",
+    "session_type": "strength",
+    "exercises": [
+      {
+        "name": "bench_press",
+        "sets": [
+          { "weight": 85, "reps": 5, "rpe": 8.5 },
+          { "weight": 85, "reps": 5, "rpe": 8.5 },
+          { "weight": 85, "reps": 5, "rpe": 8.5 }
+        ]
+      },
+      {
+        "name": "squat",
+        "sets": [
+          { "weight": 105, "reps": 5, "rpe": 8 },
+          { "weight": 105, "reps": 5, "rpe": 8 },
+          { "weight": 105, "reps": 5, "rpe": 8 }
+        ]
+      }
+    ],
+    "duration_minutes": 70,
+    "sleep_hours": 8,
+    "pain": []
+  }
+]

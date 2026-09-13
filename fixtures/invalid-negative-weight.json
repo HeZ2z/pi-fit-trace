@@ -1,0 +1,12 @@
+{
+  "id": "invalid-negative-weight",
+  "schema_version": 1,
+  "date": "2026-09-01",
+  "session_type": "strength",
+  "exercises": [
+    {
+      "name": "bench_press",
+      "sets": [{ "weight": -5, "reps": 5, "rpe": 8 }]
+    }
+  ]
+}

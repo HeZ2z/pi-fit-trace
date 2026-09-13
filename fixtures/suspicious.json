@@ -1,0 +1,16 @@
+{
+  "id": "2026-09-03-suspicious",
+  "date": "2026-09-03",
+  "session_type": "strength",
+  "exercises": [
+    {
+      "name": "deadlift",
+      "sets": [
+        { "weight": 0, "reps": 10 }
+      ]
+    }
+  ],
+  "duration_minutes": 700,
+  "sleep_hours": 16,
+  "notes": "Suspicious but usable: missing schema_version, zero weight, long duration, implausible sleep."
+}

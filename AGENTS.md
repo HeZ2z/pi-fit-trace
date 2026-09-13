@@ -1,38 +1,38 @@
 # AGENTS.md
 
-## Repository purpose
+## What this repo is
 
-`pi-fit-trace` is a design-stage project for a pi plugin that turns training logs into evidence-based progress analysis and draft training plans.
+`pi-fit-trace` is a pi **Extension + Skill** that turns training logs into deterministic progress analysis and draft training plans. An implementation now exists; the docs in `docs/` remain the product contract.
 
-The repository currently contains documentation only. There is no source tree, package manifest, build, test suite, CI configuration, or confirmed pi runtime integration.
+## Layout (pi discovery paths, not generic folders)
 
-Treat the documentation as the current product contract. Do not assume conventional directories or invent pi APIs.
+- `.pi/extensions/fit-trace/index.ts` — the only pi-runtime module; registers the four tools.
+- `.pi/extensions/fit-trace/core/` — pure TypeScript domain logic (no pi/typebox imports). Tests target this.
+- `.pi/skills/training-coach/SKILL.md` — the Skill; auto-discovered by pi.
+- `fixtures/` — JSON fixtures used by tests. `tests/` — `node:test` suite.
 
-## Current blocker
+## Commands
 
-The target pi extension API and runtime model are unconfirmed. Before implementing code, verify the supported extension, tool-registration, persistence, and skill-loading mechanisms against the target pi version and official documentation.
+- `pnpm install`
+- `pnpm test` — Node's built-in test runner over `tests/*.test.ts`; no build step.
+- `pnpm typecheck` — `tsc --noEmit`.
 
-## Documentation
+## Hard rules
 
-- `README.md` — canonical English project overview.
-- `README.zh-CN.md` — Chinese mirror; keep it synchronized with `README.md`.
-- `docs/mvp-design.md` — MVP scope, initial data protocol, and implementation sequence.
-- `docs/extension-skill-spec.md` — Extension/Skill boundaries, tool contracts, data rules, and acceptance criteria.
+- Extension = deterministic only: no LLM, clock, or randomness in `core/`. Skill = behavior/domain only; it must not read storage directly.
+- pi signals tool failure by **throwing** from `execute`. Returning `{ accepted: false }` is not an error. Validation/conflict failures throw `FitTraceError` subclasses.
+- Imports are idempotent by `id`: an identical re-import is a no-op; the same `id` with different content throws `CONFLICT` (never overwrite an original record).
+- Stored records are re-validated on load; a malformed/outdated store throws `CORRUPT_STORE` with the failing record index. Date filters are validated and throw `VALIDATION_ERROR` (invalid or inverted ranges) instead of an opaque `RangeError`.
+- `generate_next_plan` returns a draft and never writes; plans require explicit user confirmation.
+- Keep pi/typebox imports confined to `index.ts`.
 
-Write all new documentation in English unless a translation is explicitly requested.
+## Gotchas
 
-## Design constraints
+- Requires Node >= 24 and pnpm (`packageManager: pnpm@10.34.5`).
+- Core modules use `.ts` extensions in relative imports (Node type-stripping) and must stay erasable: no `enum`, no parameter properties.
+- Persistence is local JSON at `<cwd>/.pi/fit-trace/workouts.json`; override with `PI_FIT_TRACE_STORE`.
+- Tests mock `ExtensionAPI`, so the adapter is exercised without a pi runtime.
 
-- **Extension:** deterministic runtime capabilities only: register tools, validate input, persist and query records, compute metrics, and return structured results.
-- **Skill:** model behavior and domain guidance only: interpret metrics, generate recommendations, and cite evidence. It must not access storage directly or bypass the Extension.
-- Plans are drafts until the user confirms them. Never modify an original workout record implicitly.
-- Workout imports must be idempotent. A record with an existing `id` must not be stored twice.
-- Recommendations must distinguish recorded facts, inferences, and suggestions; they must not fabricate training history.
-- Pain, extreme exertion, missing data, or other abnormal signals require conservative guidance and an appropriate professional-care prompt.
+## Open blocker
 
-## Change and verification rules
-
-- Keep changes small, reviewable, and aligned with the docs.
-- Update the relevant specification before changing its contract.
-- Prefer deterministic, fixture-based verification for data validation, metrics, and tool behavior.
-- Before claiming completion, run the checks appropriate to the files changed and report any unverified integration assumptions.
+App ↔ pi transport (SDK / RPC / JSON mode) is undecided; v1 is fixture-driven.

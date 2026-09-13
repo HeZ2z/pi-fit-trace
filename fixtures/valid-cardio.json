@@ -1,0 +1,16 @@
+{
+  "id": "2026-09-02-cardio",
+  "schema_version": 1,
+  "date": "2026-09-02",
+  "session_type": "cardio",
+  "exercises": [
+    {
+      "name": "row_erg",
+      "sets": [
+        { "reps": 500, "rpe": 6 }
+      ]
+    }
+  ],
+  "duration_minutes": 30,
+  "sleep_hours": 7
+}

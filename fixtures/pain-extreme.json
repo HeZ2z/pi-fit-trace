@@ -1,0 +1,16 @@
+{
+  "id": "2026-09-05-pain",
+  "schema_version": 1,
+  "date": "2026-09-05",
+  "session_type": "strength",
+  "exercises": [
+    {
+      "name": "deadlift",
+      "sets": [
+        { "weight": 140, "reps": 3, "rpe": 10 }
+      ]
+    }
+  ],
+  "duration_minutes": 50,
+  "pain": [{ "area": "lower_back", "level": 6 }]
+}
