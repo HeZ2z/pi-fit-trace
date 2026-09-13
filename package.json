@@ -9,8 +9,10 @@
     "node": ">=24"
   },
   "scripts": {
-    "test": "node --test tests/*.test.ts",
-    "typecheck": "tsc --noEmit"
+    "test": "pnpm run test:extension && pnpm run test:app",
+    "test:extension": "node --test tests/*.test.ts",
+    "test:app": "pnpm --filter app test",
+    "typecheck": "tsc --noEmit && pnpm --filter app typecheck"
   },
   "devDependencies": {
     "@earendil-works/pi-ai": "^0.85.1",
