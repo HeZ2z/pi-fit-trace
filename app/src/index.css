@@ -94,3 +94,33 @@ body {
   border-left: 3px solid #b00020;
   padding-left: 0.75rem;
 }
+
+.history-list {
+  list-style: none;
+  padding: 0;
+}
+
+.history-row {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.history-summary {
+  display: block;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.summary-details {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 1rem;
+}
+
+.summary-details dt {
+  font-weight: 600;
+}
+
+.summary-details dd {
+  margin: 0;
+}
