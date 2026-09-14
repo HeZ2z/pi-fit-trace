@@ -6,3 +6,4 @@
  * which contains Node-only code.
  */
 export * from "@pi-fit-trace/core";
+export * from "./ids.ts";
