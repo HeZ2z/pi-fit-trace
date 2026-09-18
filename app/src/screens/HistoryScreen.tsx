@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { summarizeMetrics } from "@pi-fit-trace/core";
 import type { WorkoutRecord } from "@pi-fit-trace/core";
+import { useWorkoutExport } from "../api/useWorkoutExport.ts";
 import { useWorkouts } from "../state/useWorkouts.ts";
 
 function HistoryRow({ record }: { record: WorkoutRecord }) {
@@ -25,6 +26,7 @@ function HistoryRow({ record }: { record: WorkoutRecord }) {
 
 export function HistoryScreen() {
   const { records } = useWorkouts();
+  const { exportWorkouts, error: exportError } = useWorkoutExport(records);
 
   // The store loads records in ascending date order; reverse explicitly so the
   // most recent workout appears first.
@@ -33,6 +35,18 @@ export function HistoryScreen() {
   return (
     <section>
       <h1>Workout History</h1>
+
+      {/* Hidden-by-disabling: an empty export has no value, so the action stays
+          present (discoverable) but cannot be triggered. */}
+      <button type="button" onClick={exportWorkouts} disabled={records.length === 0}>
+        Export workouts (JSON)
+      </button>
+
+      {exportError !== null && (
+        <div role="alert" className="validation-summary" data-testid="export-error">
+          <p>Could not export workouts: {exportError}</p>
+        </div>
+      )}
 
       {records.length === 0 ? (
         <div className="empty-state">
