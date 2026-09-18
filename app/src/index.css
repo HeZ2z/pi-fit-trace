@@ -124,3 +124,31 @@ body {
 .summary-details dd {
   margin: 0;
 }
+
+.empty-state {
+  border: 1px dashed #c0c0c0;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.analysis-period,
+.analysis-source-count {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.analysis-metrics,
+.analysis-trends,
+.analysis-flags {
+  padding-left: 1.25rem;
+}
+
+.analysis-flags > li {
+  margin-bottom: 0.5rem;
+}
+
+.flag-evidence {
+  color: #555;
+  font-size: 0.85rem;
+  padding-left: 1.25rem;
+}
