@@ -152,3 +152,50 @@ body {
   font-size: 0.85rem;
   padding-left: 1.25rem;
 }
+
+.plan-status {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.plan-based-on,
+.plan-goal {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.plan-recommendations {
+  padding-left: 1.25rem;
+}
+
+.plan-recommendation {
+  margin-bottom: 0.75rem;
+}
+
+.plan-action {
+  font-weight: 600;
+  margin: 0;
+}
+
+.plan-detail,
+.plan-reason {
+  margin: 0.25rem 0;
+}
+
+.plan-evidence {
+  color: #555;
+  font-size: 0.85rem;
+  padding-left: 1.25rem;
+}
+
+.care-prompt {
+  border: 2px solid #b00020;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  background: #fff5f5;
+}
+
+.care-prompt h2 {
+  margin-top: 0;
+  color: #b00020;
+}
